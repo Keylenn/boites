@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "version": "1.0.0",
+  "packageManager": "pnpm@7.26.3",
+  "type": "module",
+  "engines": {
+    "node": ">=14"
+  },
+  "author": "Keylenn <darklight_on@163.com>",
+  "license": "MIT"
+}
