@@ -1,20 +1,25 @@
 {
   "name": "@boites/core",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "files": [
     "dist"
   ],
-  "main": "./dist/boite-core.umd.cjs",
-  "module": "./dist/boite-core.js",
+  "main": "./dist/boites-core.umd.cjs",
+  "module": "./dist/boites-core.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     "types": "./dist/index.d.ts",
-    "import": "./dist/boite-core.js",
-    "require": "./dist/boite-core.umd.cjs"
+    "import": "./dist/boites-core.js",
+    "require": "./dist/boites-core.umd.cjs"
   },
   "scripts": {
     "dev": "vite",
     "build": "vite build"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
     "typescript": "^5.1.3",
