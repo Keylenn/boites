@@ -1,6 +1,9 @@
 import * as React from 'react'
 import type {ProtectedBox, BoxData, SetDataAction, MapDateFn} from "@boites/core"
 
+
+export type {ProtectedBox, BoxData, SetDataAction, MapDateFn}
+
 export default function useBoxState<T extends ProtectedBox>(box: T): [BoxData<T>, SetDataAction<T>]
 export default function useBoxState<T extends ProtectedBox, M extends MapDateFn<T>>(
   box: T,

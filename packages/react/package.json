@@ -1,6 +1,6 @@
 {
   "name": "@boites/react",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "type": "module",
   "files": [
     "dist"
@@ -17,10 +17,6 @@
     "dev": "vite",
     "build": "vite build"
   },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org/"
-  },
   "devDependencies": {
     "@types/react": "^18.2.12",
     "react": "^17.0.1",
@@ -30,7 +26,10 @@
     "@boites/core": "workspace:*"
   },
   "peerDependencies": {
-    "react": "^16.8.0 || ^17",
-    "@boites/core": "workspace:*"
+    "react": "^16.8.0 || ^17"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }

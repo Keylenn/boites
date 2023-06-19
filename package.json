@@ -2,10 +2,18 @@
   "private": true,
   "version": "1.0.0",
   "packageManager": "pnpm@7.26.3",
-  "type": "module",
+  "scripts": {
+    "release": "node scripts/release"
+  },
   "engines": {
     "node": ">=14"
   },
   "author": "Keylenn <darklight_on@163.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "elapsed-time-logger": "^1.1.7",
+    "exec-sh": "^0.4.0",
+    "kolorist": "^1.8.0",
+    "prompts": "^2.4.2"
+  }
 }

@@ -10,7 +10,7 @@ export default function createBox<T, D = T extends () => any ? ReturnType<T> : T
   function getData<M extends (data: D) => any>(mapFn: M): ReturnType<M>
   function getData(): D
   function getData(mapFn?: any) {
-    return mapFn?.(box.get()) ?? box.get()
+    return typeof mapFn === "function" ? mapFn(box.get()) : box.get()
   }
 
   function setData<N extends (prev: D) => D>(nextData: N): D
@@ -27,7 +27,7 @@ export default function createBox<T, D = T extends () => any ? ReturnType<T> : T
     const defaultDeps = getDeps()
     const listener: Listener = () => {
       const nextDeps = getDeps()
-      const prevDeps = listener.deps ?? defaultDeps
+      const prevDeps = listener.deps || defaultDeps
       const isUpdate = Object.is(prevDeps, nextDeps) === false
       if (isUpdate) handler()
       listener.deps = nextDeps
@@ -38,8 +38,8 @@ export default function createBox<T, D = T extends () => any ? ReturnType<T> : T
   const protectedBox = Object.freeze({
     getData,
     setData,
-    addListener: box.add,
-    removeListener: box.remove,
+    addListener: box.add.bind(box),
+    removeListener: box.remove.bind(box),
     addUpdateListener,
   })
 
