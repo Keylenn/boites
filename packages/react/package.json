@@ -1,6 +1,6 @@
 {
   "name": "@boites/react",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.1",
   "type": "module",
   "description": "Easier integration of @boites/core and React",
   "author": "keylenn <darklight_on@163.com>",

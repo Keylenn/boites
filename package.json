@@ -1,7 +1,14 @@
 {
   "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "version": "1.0.0",
   "packageManager": "pnpm@7.26.3",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Keylenn/boites.git"
+  },
   "scripts": {
     "release": "node scripts/release"
   },

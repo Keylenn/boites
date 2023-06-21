@@ -49,7 +49,7 @@ async function release() {
         name: 'tag',
         message: '发布标签🏷️',
         choices: [
-          { title: 'lasest', value: 'lasest', description: '最新版本eg: 1.0.0' },
+          { title: 'latest', value: 'latest', description: '最新版本eg: 1.0.0' },
           { title: 'beta', value: 'beta',  description: '测试版本eg: 1.0.0-beta.0' },
           { title: 'next', value: 'next',  description: '先行版本eg: 1.0.0-alpha.0' },
         ],
