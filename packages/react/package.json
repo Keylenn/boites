@@ -1,9 +1,17 @@
 {
   "name": "@boites/react",
-  "version": "0.1.4",
+  "version": "1.0.0-beta.1",
   "type": "module",
+  "description": "Easier integration of @boites/core and React",
+  "author": "keylenn <darklight_on@163.com>",
   "files": [
     "dist"
+  ],
+  "keywords": [
+    "data",
+    "box",
+    "React",
+    "hooks"
   ],
   "main": "./dist/boites-react.umd.cjs",
   "module": "./dist/boites-react.js",
@@ -18,8 +26,10 @@
     "build": "vite build"
   },
   "devDependencies": {
-    "@types/react": "^18.2.12",
+    "@types/react": "^17.0.62",
+    "@types/react-dom": "^17.0.20",
     "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "typescript": "^5.1.3",
     "vite": "^4.3.9",
     "vite-plugin-dts": "^2.3.0",
@@ -31,5 +41,12 @@
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Keylenn/boites.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Keylenn/boites/issues"
   }
 }

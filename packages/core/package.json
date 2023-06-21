@@ -1,9 +1,18 @@
 {
   "name": "@boites/core",
-  "version": "0.1.2",
+  "version": "1.0.0-beta.0",
   "type": "module",
+  "description": "Framework-independent, lightweight, progressive, immutable data management",
+  "author": "keylenn <darklight_on@163.com>",
   "files": [
     "dist"
+  ],
+  "keywords": [
+    "data",
+    "box",
+    "progressive",
+    "lightweight",
+    "immutable"
   ],
   "main": "./dist/boites-core.umd.cjs",
   "module": "./dist/boites-core.js",
@@ -25,5 +34,12 @@
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Keylenn/boites.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Keylenn/boites/issues"
   }
 }

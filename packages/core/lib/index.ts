@@ -1,17 +1,10 @@
 export type ProtectedBox = ReturnType<typeof createBox>
 export type BoxData<T extends ProtectedBox> = ReturnType<T['getData']>
-export type MapDateFn<T extends ProtectedBox, D = BoxData<T>> = (data: D) => any
-export type SetDataAction<T extends ProtectedBox, D = BoxData<T>> = (next: D | ((prev: D) => D)) => D
+export type GetSnapshot<T extends ProtectedBox, D = BoxData<T>> = (data: D) => any
 
 export default function createBox<T, D = T extends () => any ? ReturnType<T> : T>(iData: T) {
   const initialData = typeof iData === 'function' ? iData() : iData
   const box = new Box<D>(initialData)
-
-  function getData<M extends (data: D) => any>(mapFn: M): ReturnType<M>
-  function getData(): D
-  function getData(mapFn?: any) {
-    return typeof mapFn === "function" ? mapFn(box.get()) : box.get()
-  }
 
   function setData<N extends (prev: D) => D>(nextData: N): D
   function setData<N extends D>(nextData: N): D
@@ -36,7 +29,7 @@ export default function createBox<T, D = T extends () => any ? ReturnType<T> : T
   }
 
   const protectedBox = Object.freeze({
-    getData,
+    getData: box.get.bind(box),
     setData,
     addListener: box.add.bind(box),
     removeListener: box.remove.bind(box),
