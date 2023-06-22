@@ -20,7 +20,7 @@ export default function createBox<T, D = T extends () => any ? ReturnType<T> : T
     const defaultDeps = getDeps()
     const listener: Listener = () => {
       const nextDeps = getDeps()
-      const prevDeps = listener.deps || defaultDeps
+      const prevDeps = listener.deps === undefined ? defaultDeps : listener.deps
       const isUpdate = Object.is(prevDeps, nextDeps) === false
       if (isUpdate) handler()
       listener.deps = nextDeps
