@@ -18,5 +18,7 @@ export default defineConfig({
     },
   },
   plugins: [dts()],
-  
+  server: {
+    host: true,
+  },
 })
