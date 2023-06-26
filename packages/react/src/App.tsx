@@ -5,13 +5,14 @@ import viteLogo from './assets/vite.svg'
 import useSyncBoxStore from '../lib'
 import './App.css'
 
-const defaultCountValue = {
+const countBox = createBox({
   count1: 0,
   count2: 0,
   sharedCount: 0,
-}
+})
 
-const countBox = createBox(defaultCountValue)
+const defaultCountValue = countBox.getData()
+
 
 function App() {
   return (
@@ -34,7 +35,8 @@ function App() {
       <Counter type="1" />
       <Counter type = "2" />
       </div>
-      <StatusBar />
+      
+      
       <p className="read-the-docs">
         Click on the Vite and React logos and Package Name to learn more
       </p>
@@ -103,28 +105,4 @@ function AnimationDice({text = 'Render...'}: {text?: React.ReactNode}) {
     </div>
     <div ref={textRef} className='text'>{text}</div>
   </div>
-}
-
-function StatusBar() {
-  const isOnline = useOnlineStatus();
-  return <DiceCard>{isOnline ? '✅ Online' : '❌ Disconnected'}</DiceCard>;
-}
-
-
-
-const deviceInfoBox = createBox(navigator.onLine)
-
-function useOnlineStatus() {
-  const isOnline = useSyncBoxStore(deviceInfoBox)
-  React.useEffect(() => {
-    const handler = () => deviceInfoBox.setData(navigator.onLine)
-
-    window.addEventListener('online', handler)
-    window.addEventListener('offline', handler)
-    return () => {
-      window.removeEventListener('online', handler)
-      window.removeEventListener('offline', handler)
-    };
-  }, [])
-  return isOnline;
 }
